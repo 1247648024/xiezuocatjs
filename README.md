@@ -2,7 +2,7 @@
 
 ```js
 
-import Xiezuocat from "./src/xiezuocat.js";
+import Xiezuocat from 'xiezuocatjs/src/xiezuocat.js'
 
 var checkData = JSON.stringify({
   "texts": [
@@ -34,5 +34,8 @@ xiezuocat.rewrite(rewriteData).then(res => {
 }).catch(err => {
   console.log('rewrite err === ', err);
 })
+
+const signatureRes = xiezuocat.signature("xxx", "ll");
+console.log('signatureRes === ' + signatureRes);
 
 ```
