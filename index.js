@@ -14,19 +14,22 @@ var rewriteData = JSON.stringify({
   "level": "middle"
 });
 
-var xiezuocat = new Xiezuocat("xxx");
+var xiezuocat = new Xiezuocat("xx");
 // xiezuocat.setCheckUrl("https://checkerbeta.metasotalaw.cn/api/text_check");
 // xiezuocat.setRewriteUrl("https://checkerbeta.metasotalaw.cn/html/api/rewrite");
 
-xiezuocat.check(checkData).then(res => {
-  console.log('check result === ', res.data);
-}).catch(err => {
-  console.log('check err === ', err);
-})
+// xiezuocat.check(checkData).then(res => {
+//   console.log('check result === ', res.data);
+// }).catch(err => {
+//   console.log('check err === ', err);
+// })
+//
+//
+// xiezuocat.rewrite(rewriteData).then(res => {
+//   console.log('rewrite result === ', res.data);
+// }).catch(err => {
+//   console.log('rewrite err === ', err);
+// })
 
-
-xiezuocat.rewrite(rewriteData).then(res => {
-  console.log('rewrite result === ', res.data);
-}).catch(err => {
-  console.log('rewrite err === ', err);
-})
+const signatureRes = xiezuocat.signature("xxx", "ll");
+console.log('signatureRes === ' + signatureRes);
