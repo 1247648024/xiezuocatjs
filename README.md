@@ -1,6 +1,7 @@
 # xiezuocatjs
 
 ```js
+npm install xiezuocatjs
 
 import Xiezuocat from 'xiezuocatjs/src/xiezuocat.js'
 
