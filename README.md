@@ -17,7 +17,7 @@ var checkData = JSON.stringify({
     "我想念十分赵忠祥。嘿嘿嘿。"
   ]
 });
-var xiezuocat = new Xiezuocat("be58f53e4b93a8e7");
+var xiezuocat = new Xiezuocat("XXX");
 xiezuocat.check(checkData).then(res => {
   console.log(JSON.stringify(res.data));
 }).catch(err => {
@@ -37,7 +37,7 @@ var rewriteData = JSON.stringify({
   ],
   "level": "middle"
 });
-var xiezuocat = new Xiezuocat("be58f53e4b93a8e7");
+var xiezuocat = new Xiezuocat("XXX");
 xiezuocat.rewrite(rewriteData).then(res => {
   console.log(JSON.stringify(res.data));
 }).catch(err => {
@@ -58,7 +58,7 @@ var generateParams = JSON.stringify({
   "title": "飞机",
   "length": "default"
 });
-var xiezuocat = new Xiezuocat("be58f53e4b93a8e7");
+var xiezuocat = new Xiezuocat("XXX");
 xiezuocat.generate(generateParams).then(res => {
   console.log(JSON.stringify(res.data));
 }).catch(err => {
@@ -73,7 +73,7 @@ xiezuocat.generate(generateParams).then(res => {
 #### 获取生成结果
 ##### 调用示例
 ```java
-var xiezuocat = new Xiezuocat("be58f53e4b93a8e7");
+var xiezuocat = new Xiezuocat("XXX");
 var docId = "66a3d815-4aed-4d29-a045-2d5a0e3acdc8"; // 此处docId为第一步生成的结果
 xiezuocat.getGenerateResult(docId).then(res => {
   console.log(JSON.stringify(res.data));
@@ -88,7 +88,7 @@ xiezuocat.getGenerateResult(docId).then(res => {
 ### 4、单点登录签名算法
 ##### 调用示例
 ```java
-var xiezuocat = new Xiezuocat("be58f53e4b93a8e7");
+var xiezuocat = new Xiezuocat("XXX");
 const signature = xiezuocat.getSSOSignature("xxx", "ll");
 console.log(signature);
 ```
