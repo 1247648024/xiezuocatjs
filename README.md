@@ -30,7 +30,7 @@ xiezuocat.check(checkData).then(res => {
 ```
 ### 2、智能改写
 ##### 调用示例
-```java
+```js
 var rewriteData = JSON.stringify({
   "items": [
     "一般"
@@ -52,7 +52,7 @@ xiezuocat.rewrite(rewriteData).then(res => {
 ### 3、AI写作
 #### 创建生成任务
 ##### 调用示例
-```java
+```js
 var generateParams = JSON.stringify({
   "type": "Step",
   "title": "飞机",
@@ -72,7 +72,7 @@ xiezuocat.generate(generateParams).then(res => {
 
 #### 获取生成结果
 ##### 调用示例
-```java
+```js
 var xiezuocat = new Xiezuocat("XXX");
 var docId = "66a3d815-4aed-4d29-a045-2d5a0e3acdc8"; // 此处docId为第一步生成的结果
 xiezuocat.getGenerateResult(docId).then(res => {
@@ -87,7 +87,7 @@ xiezuocat.getGenerateResult(docId).then(res => {
 ```
 ### 4、单点登录签名算法
 ##### 调用示例
-```java
+```js
 var xiezuocat = new Xiezuocat("XXX");
 const signature = xiezuocat.getSSOSignature("xxx", "ll");
 console.log(signature);
