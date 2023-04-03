@@ -5,7 +5,9 @@ import encode from "./Base64Util.js"
 var Xiezuocat = function (secretKey) {
   this.secretKey = secretKey;
   this.checkUrl = "https://apicheck.xiezuocat.com/api/text_check";
-  this.rewriteUrl = "http://api.xiezuocat.com/para_api_v2";
+  this.rewriteUrl = "https://apicheck.xiezuocat.com/api/api/rewrite";
+  this.aiWriteGenerateUrl = "https://apicheck.xiezuocat.com/api/api/generate";
+  this.aiWriteGetGenerateResultUrl = "https://apicheck.xiezuocat.com/api/api/generation/{docId}";
 
   this.setCheckUrl = function (checkUrl) {
     this.checkUrl = checkUrl;
@@ -16,34 +18,50 @@ var Xiezuocat = function (secretKey) {
   }
 
   this.check = function (data) {
-    var config = {
-      method: 'post',
-      url: this.checkUrl,
-      headers: {
-        'Content-Type': 'application/json',
-        'secret-key': this.secretKey,
-      },
-      data : data
-    };
-
-    return axios(config);
+    return this.doPost(this.checkUrl, data);
   }
 
   this.rewrite = function (data) {
+    return this.doPost(this.rewriteUrl, data);
+  }
+
+  this.generate = function (data) {
+    return this.doPost(this.aiWriteGenerateUrl, data);
+  }
+
+  this.getGenerateResult = function (docId) {
+    let url = this.aiWriteGetGenerateResultUrl.replace("{docId}", docId);
+    return this.doGet(url);
+  }
+
+  this.doPost = function (url, postData) {
     var config = {
       method: 'post',
-      url: this.rewriteUrl,
+      url: url,
       headers: {
         'Content-Type': 'application/json',
         'secret-key': this.secretKey,
       },
-      data : data
+      data : postData
     };
 
     return axios(config);
   }
 
-  this.signature = function (appId, id) {
+  this.doGet = function (url) {
+    var config = {
+      method: 'get',
+      url: url,
+      headers: {
+        'Content-Type': 'application/json',
+        'secret-key': this.secretKey,
+      },
+    };
+
+    return axios(config);
+  }
+
+  this.getSSOSignature = function (appId, id) {
     const timestamp = new Date().getTime();
     const paraMap = {
       "appId": appId,
